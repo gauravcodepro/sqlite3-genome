@@ -1,4 +1,4 @@
-# sql-client-genome-render
+# sql-genome-render
 
 - a sql rendering for the genome infrastucture.
 - files needed: genome file, gff files, pangenome graphs, linear pangenome graphs.
