@@ -53,4 +53,4 @@ def sqlitewrapper(pathfasta, databasename):
   connection.commit()
 
 if __name__ == __main__:
-  main()
+  sqlitewrapper(pathfasta, databasename)
