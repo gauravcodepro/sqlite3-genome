@@ -3,10 +3,13 @@
 # Universitat Potsdam
 # Date 2024-6-20
 
-import sqlite3
+import logging
 import os
-import logging 
-import polars as pl 
+import sqlite3
+
+import pandas as pd
+import polars as pl
+
 
 def sqlitewrapper(pathfasta, databasename):
   """
@@ -51,6 +54,20 @@ def sqlitewrapper(pathfasta, databasename):
          tuple(([lenfasta[i] for i in range(len(lenfasta))]))
          """)
   connection.commit()
+
+def gffload(pathfasta, pathgff):
+  with open(os.path.join(os.getcwd(),pathgff)) as gffread:
+    with open(os.path.join(os.getcwd(),pathgff, ".mod.gff")) as gffwrite:
+      store_gff = [line for line in gffread if not line.startswith("#")]
+      # add a subfunction for the write of the headers with the modified information
+      # for the loading into the database so that the crate, javascript database 
+      # and all can sync
+      gffwrite.write(storegff)
+      gffread.close()
+      gffwrite.close()
+  readgff = pd.read_csv(os.path.join(os.getcwd(),pathgff, ".mod.gff"), sep = "\t")
+  
+
 
 if __name__ == __main__:
   sqlitewrapper(pathfasta, databasename)
