@@ -1,6 +1,6 @@
-# sql-genome
+# sqlite3-genome
 
-- a sql rendering for the genome infrastucture.
+- a sqllite rendering for the genome infrastucture.
 - files needed: genome file, gff files, pangenome graphs, linear pangenome graphs.
 - this is also compatible with the pymongo, javascript and php. 
 - below is the UML for the following
