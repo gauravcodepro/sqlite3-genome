@@ -72,8 +72,7 @@ def sqlitewrapper(pathfasta, databasename):
         idlocation = gffdataframe["column9"].to_list()
         dbprepare = []
         for i in range(len(genomeloc)):
-            for i in range(len(genomeloc)):
-                dbprepare[genomeloc[i]] = [{genomeloc[i]: accession[i]}, {genomeloc[i]: typeaccession[i]},
+            dbprepare[genomeloc[i]] = [{genomeloc[i]: accession[i]}, {genomeloc[i]: typeaccession[i]},
                                         {genomeloc[i]: start[i]}, {genomeloc[i]:end[i]},
                                         {genomeloc[i]:length[i]}, {genomeloc[i]: posstrand[i]},
                                         {genomeloc[i]:negstrand[i]}, {genomeloc[i]: idlocation[i]}]dlocation[i]}])
