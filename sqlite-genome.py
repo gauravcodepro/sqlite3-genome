@@ -127,7 +127,7 @@ def sqlitewrapper(pathfasta, databasename):
                      tuple(([negsstrand[i] for i in range(len(negsstrand))]))
          """)
         connection.commit()
-         connection.execute("""
+        connection.execute("""
             INSERT INTO idlocation VALUES
                      tuple(([idlocation[i] for i in range(len(idlocation))]))
          """)
@@ -166,12 +166,11 @@ def sqlitewrapper(pathfasta, databasename):
                      tuple(([select2[i] for i in range(len(select2))]))
          """)
         connection.commit()
-         connection.execute("""
+        connection.execute("""
             INSERT INTO select3 VALUES
                      tuple(([select3[i] for i in range(len(select3))]))
          """)
         connection.commit()
-  
 
     def intronparse(pathgff):
         if pathgff:
@@ -205,7 +204,7 @@ def sqlitewrapper(pathfasta, databasename):
                      tuple(([select2[i] for i in range(len(select2))]))
          """)
         connection.commit()
-         connection.execute("""
+        connection.execute("""
             INSERT INTO select3 VALUES
                      tuple(([select3[i] for i in range(len(select3))]))
          """)
@@ -259,7 +258,7 @@ def sqlitewrapper(pathfasta, databasename):
                      tuple(([exonseqprepare.keys()[i] for i in range(len(list(exonseqprepare.keys()))))]))
          """)
         connection.commit()
-         connection.execute("""
+        connection.execute("""
             INSERT INTO select2 VALUES
                      tuple(([exonseqprepare.values()[i] for i in range(len(list(exonseqprepare.values()))))]))
          """)
@@ -314,7 +313,7 @@ def sqlitewrapper(pathfasta, databasename):
                      tuple(([intronseqprepare.keys()[i] for i in range(len(list(intronseqprepare.keys()))))]))
          """)
         connection.commit()
-         connection.execute("""
+        connection.execute("""
             INSERT INTO select2 VALUES
                      tuple(([intronseqprepare.values()[i] for i in range(len(list(intronseqprepare.values()))))]))
          """)
