@@ -8,7 +8,6 @@
 import logging
 import os
 import sqlite3
-
 import pandas as pd
 
 
@@ -154,8 +153,25 @@ def sqlitewrapper(pathfasta, databasename):
                 if select1 == "exon":
                     prepareexon[select1[i]] = [{select1[i]: select2[i]}, {select1[i]: select2[i]}]
         connection = con.cursor()
-
-        
+        connection.execute("CREATE TABLE exon(select1)")
+        connection.execute("CREATE TABLE exon(select2)")
+        connection.execute("CREATE TABLE exon(select3)")
+        connection.execute("""
+            INSERT INTO select1 VALUES
+                     tuple(([select1[i] for i in range(len(select1))]))
+         """)
+        connection.commit()
+         connection.execute("""
+            INSERT INTO select2 VALUES
+                     tuple(([select2[i] for i in range(len(select2))]))
+         """)
+        connection.commit()
+         connection.execute("""
+            INSERT INTO select3 VALUES
+                     tuple(([select3[i] for i in range(len(select3))]))
+         """)
+        connection.commit()
+  
 
     def intronparse(pathgff):
         if pathgff:
@@ -175,7 +191,25 @@ def sqlitewrapper(pathfasta, databasename):
             for i in range(len(select1)):
                 if select1 == "exon":
                     prepareintron[select1[i]] = [{select1[i]: select2[i]}, {select1[i]: select3[i]}]
-        
+        connection = con.cursor()
+        connection.execute("CREATE TABLE intron(select1)")
+        connection.execute("CREATE TABLE intron(select2)")
+        connection.execute("CREATE TABLE intron(select3)")
+        connection.execute("""
+            INSERT INTO select1 VALUES
+                     tuple(([select1[i] for i in range(len(select1))]))
+         """)
+        connection.commit()
+         connection.execute("""
+            INSERT INTO select2 VALUES
+                     tuple(([select2[i] for i in range(len(select2))]))
+         """)
+        connection.commit()
+         connection.execute("""
+            INSERT INTO select3 VALUES
+                     tuple(([select3[i] for i in range(len(select3))]))
+         """)
+        connection.commit()
 
     def exonseq(pathgff, pathfasta):
         if pathgff and pathfasta:
@@ -217,7 +251,20 @@ def sqlitewrapper(pathfasta, databasename):
                 for j in range(len(fasta_seq)):
                     if exonseqkeys[i] == fasta_names[i]:
                         exonseqprepare[exonseqkeys[i]] == fasta_seq[i][exonseqvalues[i][0]:exonseqvalues[i][1]]
-            
+        connection = con.cursor()
+        connection.execute("CREATE TABLE exonseq(fastaids)")
+        connection.execute("CREATE TABLE exonseq(fastaseq)")
+        connection.execute("""
+            INSERT INTO fastaids VALUES
+                     tuple(([exonseqprepare.keys()[i] for i in range(len(list(exonseqprepare.keys()))))]))
+         """)
+        connection.commit()
+         connection.execute("""
+            INSERT INTO select2 VALUES
+                     tuple(([exonseqprepare.values()[i] for i in range(len(list(exonseqprepare.values()))))]))
+         """)
+        connection.commit()
+
 
     def intronseq(pathgff, pathfasta) :
         if pathgff and pathfasta:
@@ -259,6 +306,19 @@ def sqlitewrapper(pathfasta, databasename):
                 for j in range(len(fasta_seq)):
                     if intronseqkeys[i] == fasta_names[i]:
                         intronseqprepare[intronseqkeys[i]] == fasta_seq[i][intronseqvalues[i][0]:intronseqvalues[i][1]]
+        connection = con.cursor()
+        connection.execute("CREATE TABLE intronseq(fastaids)")
+        connection.execute("CREATE TABLE intronseq(fastaseq)")
+        connection.execute("""
+            INSERT INTO fastaids VALUES
+                     tuple(([intronseqprepare.keys()[i] for i in range(len(list(intronseqprepare.keys()))))]))
+         """)
+        connection.commit()
+         connection.execute("""
+            INSERT INTO select2 VALUES
+                     tuple(([intronseqprepare.values()[i] for i in range(len(list(intronseqprepare.values()))))]))
+         """)
+        connection.commit()
                 
 
     def goparsemongo(go_anntoations):
