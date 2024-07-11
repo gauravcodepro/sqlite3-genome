@@ -1,6 +1,5 @@
 #! usr/bin/env python3
 # Author Gaurav
-# Universitat Potsdam
 # Date 2024-6-20
 # Creates a sqlite database from a fasta file, gene annotations,
 # po_anntoations, geneannoationfiles, chromsome assembly files, protein annotation files.
