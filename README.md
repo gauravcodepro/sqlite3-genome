@@ -7,9 +7,4 @@
 
 <img src = "https://github.com/gauravcodepro/sql-genome-render/blob/main/UML.png" >
 
-Gaurav \
-Academic Staff Member \
-Bioinformatics \
-Institute for Biochemistry and Biology \
-University of Potsdam \
-Potsdam,Germany
+Gaurav 
